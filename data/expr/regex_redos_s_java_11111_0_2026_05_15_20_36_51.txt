@@ -1,0 +1,34 @@
+id:1
+/^\d+$/
+RESULT-FALSE
+
+-------------------------
+id:2
+^\d*\.\d+$
+RESULT-FALSE
+
+failed TYPE:POLYNOMIAL	 AttackString：""+"0"*160000+"."	 patternType: SLQ2
+failed TYPE:POLYNOMIAL	 AttackString：""+"1."*160000+"a◎"	 patternType: SLQ_2
+-------------------------
+id:3
+^\d*(\.\d+)?$
+RESULT-FALSE
+
+failed TYPE:POLYNOMIAL	 AttackString：""+"0"*160000+"\u0000"	 patternType: SLQ2
+failed TYPE:POLYNOMIAL	 AttackString：""+"."*160000+"a"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"."*160000+"aa"	 patternType: SLQ_2
+-------------------------
+id:4
+(a|a)+$
+RESULT-FALSE
+
+failed TYPE:EXPONENT	 AttackString：""+"aa"*2048+"@"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："a"+"aa"*2048+"@"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString：""+"aa"*2048+" "	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："a"+"aa"*2048+" "	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString：""+"aa"*2048+"◎a◎"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："a"+"aa"*2048+"◎a◎"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString：""+"aa"*2048+"◎"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："a"+"aa"*2048+"◎"	 patternType: EOD_i
+failed TYPE:STACK_ERROR	 AttackString：""+"a"*3510+"@"	 patternType: SLQ_1
+-------------------------

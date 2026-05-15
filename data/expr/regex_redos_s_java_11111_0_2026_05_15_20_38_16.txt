@@ -1,0 +1,77 @@
+id:1
+/^\d+$/
+RESULT-FALSE
+
+-------------------------
+id:2
+^\d*\.\d+$
+RESULT-FALSE
+
+failed TYPE:POLYNOMIAL	 AttackString：""+"0"*160000+"."	 patternType: SLQ2
+failed TYPE:POLYNOMIAL	 AttackString：""+"1."*160000+"a◎"	 patternType: SLQ_2
+-------------------------
+id:3
+^\d*(\.\d+)?$
+RESULT-FALSE
+
+failed TYPE:POLYNOMIAL	 AttackString：""+"0"*160000+"\u0000"	 patternType: SLQ2
+failed TYPE:POLYNOMIAL	 AttackString：""+"."*160000+"a"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"."*160000+"aa"	 patternType: SLQ_2
+-------------------------
+id:4
+(a|a)+$
+RESULT-FALSE
+
+failed TYPE:EXPONENT	 AttackString：""+"aa"*2048+"@"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："a"+"aa"*2048+"@"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString：""+"aa"*2048+" "	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："a"+"aa"*2048+" "	 patternType: EOD_i
+failed TYPE:STACK_ERROR	 AttackString：""+"aa"*1010+"◎a◎"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："a"+"aa"*2048+"◎a◎"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString：""+"aa"*2048+"◎"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："a"+"aa"*2048+"◎"	 patternType: EOD_i
+failed TYPE:STACK_ERROR	 AttackString：""+"a"*3010+"@"	 patternType: SLQ_1
+-------------------------
+id:5
+([a-zA-Z]+)*$
+RESULT-FALSE
+
+failed TYPE:EXPONENT	 AttackString："A"+"A"*2048+"0"	 patternType: NQ
+failed TYPE:EXPONENT	 AttackString："A"+"A"*2048+" "	 patternType: NQ
+failed TYPE:EXPONENT	 AttackString："A"+"A"*2048+"0A0"	 patternType: NQ
+failed TYPE:EXPONENT	 AttackString："A"+"a"*2048+"0"	 patternType: NQ
+failed TYPE:EXPONENT	 AttackString："A"+"a"*2048+" "	 patternType: NQ
+failed TYPE:EXPONENT	 AttackString："A"+"a"*2048+"0A0"	 patternType: NQ
+-------------------------
+id:6
+(a|aa)+$
+RESULT-FALSE
+
+failed TYPE:STACK_ERROR	 AttackString：""+"aaa"*1010+"@"	 patternType: EOD_i
+failed TYPE:STACK_ERROR	 AttackString：""+"aaaa"*1010+"@"	 patternType: EOD_i
+failed TYPE:STACK_ERROR	 AttackString："a"+"aaa"*1010+"@"	 patternType: EOD_i
+failed TYPE:STACK_ERROR	 AttackString："a"+"aaaa"*1010+"@"	 patternType: EOD_i
+failed TYPE:STACK_ERROR	 AttackString：""+"aaa"*1010+" "	 patternType: EOD_i
+failed TYPE:STACK_ERROR	 AttackString：""+"aaaa"*1010+" "	 patternType: EOD_i
+failed TYPE:STACK_ERROR	 AttackString："a"+"aaa"*1010+" "	 patternType: EOD_i
+failed TYPE:STACK_ERROR	 AttackString："a"+"aaaa"*1010+" "	 patternType: EOD_i
+failed TYPE:STACK_ERROR	 AttackString：""+"aaa"*1010+"◎a◎"	 patternType: EOD_i
+failed TYPE:STACK_ERROR	 AttackString：""+"aaaa"*1010+"◎a◎"	 patternType: EOD_i
+failed TYPE:STACK_ERROR	 AttackString："a"+"aaa"*1010+"◎a◎"	 patternType: EOD_i
+failed TYPE:STACK_ERROR	 AttackString："a"+"aaaa"*1010+"◎a◎"	 patternType: EOD_i
+failed TYPE:STACK_ERROR	 AttackString：""+"aaa"*1010+"◎"	 patternType: EOD_i
+failed TYPE:STACK_ERROR	 AttackString：""+"aaaa"*1010+"◎"	 patternType: EOD_i
+failed TYPE:STACK_ERROR	 AttackString："a"+"aaa"*1010+"◎"	 patternType: EOD_i
+failed TYPE:STACK_ERROR	 AttackString："a"+"aaaa"*1010+"◎"	 patternType: EOD_i
+failed TYPE:STACK_ERROR	 AttackString：""+"a"*3010+"@"	 patternType: SLQ_1
+failed TYPE:STACK_ERROR	 AttackString：""+"aa"*1510+"@"	 patternType: SLQ_3
+-------------------------
+id:7
+(a|a?)+$
+RESULT-FALSE
+
+failed TYPE:EXPONENT	 AttackString：""+"a"*2048+""	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString：""+"a"*2048+" "	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString：""+"a"*2048+"◎a◎"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString：""+"a"*2048+"◎"	 patternType: EOD_i
+-------------------------

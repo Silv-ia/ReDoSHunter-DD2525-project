@@ -1,0 +1,4 @@
+real sum time = 2(s)
+real check time = 1(s)
+real validate time = 1(s)
+real average time = 0.5(s)
