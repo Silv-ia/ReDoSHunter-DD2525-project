@@ -24,13 +24,13 @@ def timeout(seconds, error_message="Timeout Error: the cmd have not finished."):
 
         def wrapper(*args, **kwargs):
             global result
-            signal.signal(signal.SIGALRM, _handle_timeout)
-            signal.alarm(seconds)
+            signal.signal(signal.SIGABRT, _handle_timeout)
+            # signal.signal(seconds)
 
             try:
                 result = func(*args, **kwargs)
             finally:
-                signal.alarm(0)
+                # signal.signal(0)
                 return result
             return result
 
@@ -66,7 +66,7 @@ def run(regex, attack):
             return result + "type" + "EXPONENT"
 
 
-def fun(file="1_only_check_s_python_11111_0_2021_12_07_13_58_03.txt"):
+def fun(file="check_datapy_reg_only_check_s_python_11111_0_2026_05_15_17_34_00.txt"):
     output = "result/" + file.replace(".txt", ".result.json")
     if os.path.exists(output):
         return

@@ -1,0 +1,20 @@
+id:1
+/^\d+$/
+RESULT-FALSE
+
+-------------------------
+id:2
+^\d*\.\d+$
+RESULT-FALSE
+
+failed TYPE:POLYNOMIAL	 AttackString：""+"0"*160000+"."	 patternType: SLQ2
+failed TYPE:POLYNOMIAL	 AttackString：""+"1."*160000+"a◎"	 patternType: SLQ_2
+-------------------------
+id:3
+^\d*(\.\d+)?$
+RESULT-FALSE
+
+failed TYPE:POLYNOMIAL	 AttackString：""+"0"*160000+"\u0000"	 patternType: SLQ2
+failed TYPE:POLYNOMIAL	 AttackString：""+"."*160000+"a"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"."*160000+"aa"	 patternType: SLQ_2
+-------------------------

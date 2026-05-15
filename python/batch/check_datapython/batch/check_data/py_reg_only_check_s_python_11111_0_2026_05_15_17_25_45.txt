@@ -1,0 +1,115 @@
+[
+  {
+    "id": 1,
+    "regex": "/^\\d+$/",
+    "attackArrayList": []
+  },
+  {
+    "id": 2,
+    "regex": "/^\\d*\\.\\d+$/",
+    "attackArrayList": [
+      {
+        "prefix": "",
+        "infix": "0",
+        "suffix": ".",
+        "type": "POLYNOMIAL",
+        "patternType": "SLQ2",
+        "redos": ""
+      },
+      {
+        "prefix": "",
+        "infix": "1.",
+        "suffix": "a◎",
+        "type": "POLYNOMIAL",
+        "patternType": "SLQ_2",
+        "redos": ""
+      },
+      {
+        "prefix": "",
+        "infix": "1.",
+        "suffix": "a◎",
+        "type": "POLYNOMIAL",
+        "patternType": "SLQ_2",
+        "redos": ""
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "regex": "/^\\d*(\\.\\d+)?$/",
+    "attackArrayList": [
+      {
+        "prefix": "",
+        "infix": "0",
+        "suffix": "\u0000",
+        "type": "POLYNOMIAL",
+        "patternType": "SLQ2",
+        "redos": ""
+      },
+      {
+        "prefix": "",
+        "infix": ".",
+        "suffix": "a",
+        "type": "POLYNOMIAL",
+        "patternType": "SLQ_2",
+        "redos": ""
+      },
+      {
+        "prefix": "",
+        "infix": ".",
+        "suffix": "a",
+        "type": "POLYNOMIAL",
+        "patternType": "SLQ_2",
+        "redos": ""
+      },
+      {
+        "prefix": "",
+        "infix": ".",
+        "suffix": "aa",
+        "type": "POLYNOMIAL",
+        "patternType": "SLQ_2",
+        "redos": ""
+      },
+      {
+        "prefix": "",
+        "infix": ".",
+        "suffix": "aa",
+        "type": "POLYNOMIAL",
+        "patternType": "SLQ_2",
+        "redos": ""
+      },
+      {
+        "prefix": "",
+        "infix": ".",
+        "suffix": "a",
+        "type": "POLYNOMIAL",
+        "patternType": "SLQ_2",
+        "redos": ""
+      },
+      {
+        "prefix": "",
+        "infix": ".",
+        "suffix": "a",
+        "type": "POLYNOMIAL",
+        "patternType": "SLQ_2",
+        "redos": ""
+      },
+      {
+        "prefix": "",
+        "infix": ".",
+        "suffix": "aa",
+        "type": "POLYNOMIAL",
+        "patternType": "SLQ_2",
+        "redos": ""
+      },
+      {
+        "prefix": "",
+        "infix": ".",
+        "suffix": "aa",
+        "type": "POLYNOMIAL",
+        "patternType": "SLQ_2",
+        "redos": ""
+      }
+    ]
+  }
+]
