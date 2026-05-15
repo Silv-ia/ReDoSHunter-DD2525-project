@@ -21,6 +21,10 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import java.io.File;                  
+import java.io.FileNotFoundException; 
+import java.util.Scanner;  
+
 import static cn.ac.ios.TreeNode.Utils.createReDoSTree;
 import static cn.ac.ios.Utils.Constant.EXTENDED_COUNTING;
 import static cn.ac.ios.Utils.FlagsUtils.*;
@@ -30,27 +34,49 @@ import static cn.ac.ios.Utils.FlagsUtils.*;
  */
 public class ReDoSMain {
 
-    public static String PYTHON = "python3";
+    public static String PYTHON = "python";
     public static String JS = "node";
 
     public static void main(String[] args) throws IOException, InterruptedException {
-        String regex = "\\u003cli(.*?)\\u003e(.*?)\\u003c\\\\/li\\u003e";
-        regex = "^(\\w+)\\w+$";
-        regex = "^Set-Cookie:\\\\s*([^=]+)=([^;]+)";
-//        regex = "^Set-Cookie:(\\w+)a(\\w+)$";
-//        regex = "a+a+b";
-        ReDoSBean bean = validateReDoS(checkReDoS(regex, 1, "11111", "perl"), "s", "perl");
-        System.out.println(bean.getRegex());
-        for (int i = 0; i < bean.getAttackBeanList().size(); i++) {
-            if (bean.getAttackBeanList().get(i).isAttackSuccess()) {
-                System.out.println("Is attack success: " + bean.getAttackBeanList().get(i).isAttackSuccess());
-                System.out.println("Attack time: " + bean.getAttackBeanList().get(i).getAttackTime() + " (ms)");
-                System.out.println("Vulnerability Position: " + bean.getAttackBeanList().get(i).getLocateVulnerabilityRegex());
-                System.out.println("Attack String: " + bean.getAttackBeanList().get(i).getAttackStringFormat());
-                System.out.println("Vulnerability Source: " + bean.getAttackBeanList().get(i).getVulnerabilityRegexSource());
-                System.out.println("Vulnerability Degree: " + bean.getAttackBeanList().get(i).getType());
+        // handle file input
+        File regexes = new File("regex.txt");
+
+        ArrayList<String> regexToTest = new ArrayList<>();
+        String regex;
+
+        // try-with-resources: Scanner will be closed automatically
+        try (Scanner myReader = new Scanner(regexes)) {
+        while (myReader.hasNextLine()) {
+            String data = myReader.nextLine();
+            System.out.println(data);
+            regexToTest.add(data);
+            
+        }
+        } catch (FileNotFoundException e) {
+        System.out.println("An error occurred.");
+        e.printStackTrace();
+        }
+
+        for (int s=0; s<regexToTest.size(); s++){
+            regex = regexToTest.get(s);
+            ReDoSBean bean = validateReDoS(checkReDoS(regex, 1, "11111", "python"), "s", "python");
+            System.out.println(bean.getRegex());
+            for (int i = 0; i < bean.getAttackBeanList().size(); i++) {
+                if (bean.getAttackBeanList().get(i).isAttackSuccess()) {
+                    System.out.println("Is attack success: " + bean.getAttackBeanList().get(i).isAttackSuccess());
+                    System.out.println("Attack time: " + bean.getAttackBeanList().get(i).getAttackTime() + " (ms)");
+                    System.out.println("Vulnerability Position: " + bean.getAttackBeanList().get(i).getLocateVulnerabilityRegex());
+                    System.out.println("Attack String: " + bean.getAttackBeanList().get(i).getAttackStringFormat());
+                    System.out.println("Vulnerability Source: " + bean.getAttackBeanList().get(i).getVulnerabilityRegexSource());
+                    System.out.println("Vulnerability Degree: " + bean.getAttackBeanList().get(i).getType());
+                }
             }
         }
+//        String regex = "\\u003cli(.*?)\\u003e(.*?)\\u003c\\\\/li\\u003e";
+//        regex = "^(\\w+)\\w+$";
+//        regex = "^Set-Cookie:\\\\s*([^=]+)=([^;]+)";
+//        regex = "^Set-Cookie:(\\w+)a(\\w+)$";
+//        regex = "a+a+b";
     }
 
     /**

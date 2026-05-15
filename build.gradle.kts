@@ -49,5 +49,5 @@ tasks.withType<Javadoc>() {
 }
 
 application {
-    mainClass = "cn.ac.ios.ReDoSMain"
+    mainClass = "cn.ac.ios.Test"
 }
