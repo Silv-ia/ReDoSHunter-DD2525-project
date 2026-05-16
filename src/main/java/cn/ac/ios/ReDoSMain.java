@@ -21,10 +21,6 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import java.io.File;                  
-import java.io.FileNotFoundException; 
-import java.util.Scanner;  
-
 import static cn.ac.ios.TreeNode.Utils.createReDoSTree;
 import static cn.ac.ios.Utils.Constant.EXTENDED_COUNTING;
 import static cn.ac.ios.Utils.FlagsUtils.*;
@@ -38,34 +34,12 @@ public class ReDoSMain {
     public static String JS = "node";
 
     public static void main(String[] args) throws IOException, InterruptedException {
-        // handle file input
-        // ArrayList<String> regexToTest = new ArrayList<>();
-        // String regex;
-        /* 
-        File regexes = new File("regex.txt");
-
-        
-
-        // try-with-resources: Scanner will be closed automatically
-        try (Scanner myReader = new Scanner(regexes)) {
-        while (myReader.hasNextLine()) {
-            String data = myReader.nextLine();
-            System.out.println(data);
-            regexToTest.add(data);
-            
-        }
-        } catch (FileNotFoundException e) {
-        System.out.println("An error occurred.");
-        e.printStackTrace();
-        }
-        */
-
-        // regexToTest.add("(a|a?)+$");
-
-        // for (int s=0; s<regexToTest.size(); s++){
-            // regex = regexToTest.get(s);
         String regex = "(a|a?)+$";
-        ReDoSBean bean = validateReDoS(checkReDoS(regex, 1, "11111", "python"), "s", "python");
+        // regex = "^(\\w+)\\w+$";
+        // regex = "^Set-Cookie:\\\\s*([^=]+)=([^;]+)";
+//        regex = "^Set-Cookie:(\\w+)a(\\w+)$";
+//        regex = "a+a+b";
+        ReDoSBean bean = validateReDoS(checkReDoS(regex, 1, "11111", "perl"), "s", "python");
         System.out.println(bean.getRegex());
         for (int i = 0; i < bean.getAttackBeanList().size(); i++) {
             if (bean.getAttackBeanList().get(i).isAttackSuccess()) {
@@ -77,12 +51,6 @@ public class ReDoSMain {
                 System.out.println("Vulnerability Degree: " + bean.getAttackBeanList().get(i).getType());
             }
         }
-        //}
-//        String regex = "\\u003cli(.*?)\\u003e(.*?)\\u003c\\\\/li\\u003e";
-//        regex = "^(\\w+)\\w+$";
-//        regex = "^Set-Cookie:\\\\s*([^=]+)=([^;]+)";
-//        regex = "^Set-Cookie:(\\w+)a(\\w+)$";
-//        regex = "a+a+b";
     }
 
     /**

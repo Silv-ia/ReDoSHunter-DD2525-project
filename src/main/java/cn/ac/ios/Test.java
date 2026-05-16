@@ -32,9 +32,7 @@ import static cn.ac.ios.Utils.Utils.readFile;
 public class Test {
     public static void main(String[] args) throws IOException {
         String filePath = "data/paper_dataset";
-        String fileName = "regex.txt";
-        // String outfile = "py_reg.txt";
-        // onlyCheck(filePath + "/" + fileName, outfile, "s", "python", "11111", 0, 15, 1, 60);
+        String fileName = "test.txt";
         run(filePath + "/" + fileName, fileName);
     }
 
@@ -189,7 +187,7 @@ public class Test {
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             String json = gson.toJson(outputs);
 //            String json= JSON.toJSONString(outputs);
-            FileUtils.write(new File("C:\\Users\\laira\\Documents\\GitHub\\ReDoSHunter-DD2525-project\\data\\expr\\" + outfileName.replace(".txt", "") + "_only_check_" + tsStr + ".txt"), json, "utf-8");
+            FileUtils.write(new File("C:\\Users\\laira\\Documents\\GitHub\\ReDoSHunter-DD2525-project\\" + outfileName.replace(".txt", "") + "_only_check_" + tsStr + ".txt"), json, "utf-8");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -216,7 +214,7 @@ public class Test {
         String sourcefile = "";
         String outfileName = "";
         String model = "s";
-        String language = "python";
+        String language = "java";
         String patternModel = "11111";
         int funcType = 0;
         int checkThreadCount = 15;

@@ -1,0 +1,14 @@
+real sum time = 4(s)
+real check time = 1(s)
+real validate time = 3(s)
+real average time = 2.0(s)
+id:1
+^(a+)+$
+RESULT-TRUE
+POLYNOMIAL
+nums:1
+POLYNOMIAL	AttackString:""+"a"*20000+"@"
+patternType: SLQ_2
+vulnerability Position: Unable to locate Vulnerability position
+vulnerability Source: Unable to find Vulnerability source
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
