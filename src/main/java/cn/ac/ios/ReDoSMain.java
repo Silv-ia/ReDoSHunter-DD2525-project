@@ -39,7 +39,7 @@ public class ReDoSMain {
         // regex = "^Set-Cookie:\\\\s*([^=]+)=([^;]+)";
 //        regex = "^Set-Cookie:(\\w+)a(\\w+)$";
 //        regex = "a+a+b";
-        ReDoSBean bean = validateReDoS(checkReDoS(regex, 1, "11111", "perl"), "s", "python");
+        ReDoSBean bean = validateReDoS(checkReDoS(regex, 1, "11111", "java"), "s", "java");
         System.out.println(bean.getRegex());
         for (int i = 0; i < bean.getAttackBeanList().size(); i++) {
             if (bean.getAttackBeanList().get(i).isAttackSuccess()) {

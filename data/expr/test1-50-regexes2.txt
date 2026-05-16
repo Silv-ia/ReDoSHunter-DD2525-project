@@ -1,0 +1,34 @@
+real sum time = 18(s)
+real check time = 5(s)
+real validate time = 13(s)
+real average time = 0.36(s)
+id:27
+^\d*[-+]?[0-9]*$
+RESULT-TRUE
+POLYNOMIAL
+nums:1
+POLYNOMIAL	AttackString:"0"+"0"*20000+" "
+patternType: POA
+vulnerability Position: ^▻\d*[-+]?[0-9]*◅$
+vulnerability Source: β1 = \d* β2 = [+\-]?[0-9]* (β1.followLast) ∩ (β2.first) ≠ ∅
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+id:28
+^\d*\.?\d*$
+RESULT-TRUE
+POLYNOMIAL
+nums:1
+POLYNOMIAL	AttackString:"0"+"0"*20000+" "
+patternType: POA
+vulnerability Position: ^▻\d*\.?\d*◅$
+vulnerability Source: β1 = \d* β2 = \.?\d* (β1.followLast) ∩ (β2.first) ≠ ∅
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+id:47
+^\d+(\d{3})*\.\d{0,3}$|^\d+$
+RESULT-TRUE
+POLYNOMIAL
+nums:1
+POLYNOMIAL	AttackString:"0"+"0000"*5000+" "
+patternType: POA
+vulnerability Position: ^▻\d+◅(▻\d{3}◅)*\.\d{0,3}$|^\d+$
+vulnerability Source: β1 = \d+ β2 = \d{3} (β1.followLast) ∩ (β2.first) ≠ ∅
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

@@ -1,0 +1,725 @@
+id:1
+\d
+RESULT-FALSE
+MUST_NOT_BE_REDOS
+-------------------------
+id:2
+`\d{5}`
+RESULT-FALSE
+
+failed TYPE:POLYNOMIAL	 AttackString：""+"`"*160000+"a"	 patternType: SLQ_2
+-------------------------
+id:3
+`\d{5}-\d{4}`
+RESULT-FALSE
+
+failed TYPE:POLYNOMIAL	 AttackString：""+"`"*160000+"a"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"`11111-"*160000+"a@"	 patternType: SLQ_2
+-------------------------
+id:4
+`\b[0-9]{5}-[0-9]{4}\b`
+RESULT-FALSE
+
+failed TYPE:POLYNOMIAL	 AttackString：""+"`"*160000+"A"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"`00000-"*160000+"A@"	 patternType: SLQ_2
+-------------------------
+id:5
+`\b[0-9]{3}-[0-9]{2}-[0-9]{4}\b`
+RESULT-FALSE
+
+failed TYPE:POLYNOMIAL	 AttackString：""+"`"*160000+"A"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"`000-"*160000+"A@"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"`000-00-"*160000+"A@"	 patternType: SLQ_2
+-------------------------
+id:6
+\w
+RESULT-FALSE
+MUST_NOT_BE_REDOS
+-------------------------
+id:7
+^[a-zA-Z]+$
+RESULT-FALSE
+
+-------------------------
+id:8
+`^[a-zA-Z0-9]+$`
+RESULT-FALSE
+
+failed TYPE:POLYNOMIAL	 AttackString：""+"`"*160000+"~"	 patternType: SLQ_2
+-------------------------
+id:9
+^\d+$
+RESULT-FALSE
+
+-------------------------
+id:10
+^\s*\+?\-\?\d+$
+RESULT-FALSE
+
+failed TYPE:POLYNOMIAL	 AttackString：""+" "*160000+"-"	 patternType: SLQ2
+failed TYPE:POLYNOMIAL	 AttackString：""+" +-?"*160000+"a◎"	 patternType: SLQ_2
+-------------------------
+id:11
+`^[a-zA-Z][a-zA-Z0-9_]{3,15}$`
+RESULT-FALSE
+
+failed TYPE:POLYNOMIAL	 AttackString：""+"`A"*160000+"~0"	 patternType: SLQ_2
+-------------------------
+id:12
+^[a-zA-Z0-9]+@[a-zA-Z_]+.[a-zA-Z]{2,3}$
+RESULT-FALSE
+
+failed TYPE:POLYNOMIAL	 AttackString："0@A"+"AAAA"*160000+" "	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："A@"+"AAAA"*160000+" "	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："0@A"+"AAAA"*160000+"~"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："A@"+"AAAA"*160000+"~"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："0@A"+"AAAA"*160000+"~0~0"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："A@"+"AAAA"*160000+"~0~0"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："0@A"+"AAAA"*160000+"0A0"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："A@"+"AAAA"*160000+"0A0"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString：""+"a"*160000+"@"	 patternType: SLQ2
+failed TYPE:POLYNOMIAL	 AttackString：""+"A@"*160000+"0@"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"A@A1"*160000+"0\n@"	 patternType: SLQ_2
+-------------------------
+id:13
+`^\d{1,2}\/\d{1,2}\/\d{4}$`
+RESULT-FALSE
+
+failed TYPE:POLYNOMIAL	 AttackString：""+"`"*160000+"a"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"`1/"*160000+"a◎"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"`1/1/"*160000+"a◎"	 patternType: SLQ_2
+-------------------------
+id:14
+^[12345]$
+RESULT-FALSE
+MUST_NOT_BE_REDOS
+-------------------------
+id:15
+^[1-5]$
+RESULT-FALSE
+MUST_NOT_BE_REDOS
+-------------------------
+id:16
+`^\d{3}-\d{3}-\d{4}$`
+RESULT-FALSE
+
+failed TYPE:POLYNOMIAL	 AttackString：""+"`"*160000+"a"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"`111-"*160000+"a@"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"`111-111-"*160000+"a@"	 patternType: SLQ_2
+-------------------------
+id:17
+`\A[^-.]+(\.[a-zA-Z0-9\-\.]+)\.(com|org|net|mil|edu)$`
+RESULT-FALSE
+
+failed TYPE:POLYNOMIAL	 AttackString：""+"`A"*160000+"."	 patternType: SLQ2
+failed TYPE:POLYNOMIAL	 AttackString：""+"`"*160000+"-"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString："`A"+"."*160000+"-"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString："`A"+"."*160000+"-~"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"`A."*160000+"-"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"`A."*160000+"-~"	 patternType: SLQ_2
+-------------------------
+id:18
+`^(?=.*\d).{4,8}$`
+RESULT-FALSE
+
+failed TYPE:POLYNOMIAL	 AttackString："` "+"0\u0000\u0000\u0000\u0000"*160000+"@"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`="+"0\u0000\u0000\u0000\u0000"*160000+"@"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："` "+"0\u0000\u0000\u0000\u0000"*160000+""	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`="+"0\u0000\u0000\u0000\u0000"*160000+""	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："` "+"0\u0000\u0000\u0000\u0000"*160000+"\n"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`="+"0\u0000\u0000\u0000\u0000"*160000+"\n"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："` "+"0\u0000\u0000\u0000\u0000"*160000+"\r"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`="+"0\u0000\u0000\u0000\u0000"*160000+"\r"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString：""+"`^"*160000+"\u0000"	 patternType: SLQ2
+failed TYPE:POLYNOMIAL	 AttackString：""+"`"*160000+"\n@"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString："=`"+"1"*160000+""	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString："=`"+"1"*160000+"@"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString："=`"+"1"*160000+"@\n@"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"=`1"*160000+""	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"=`1"*160000+"@"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"=`1"*160000+"@\n@"	 patternType: SLQ_2
+-------------------------
+id:19
+`^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{4,8}$`
+RESULT-FALSE
+
+failed TYPE:POLYNOMIAL	 AttackString："` "+"a"*160000+"@"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`="+"a"*160000+"@"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："` "+"a"*160000+"\n1\n"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`="+"a"*160000+"\n1\n"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："` "+"a"*160000+"\n"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`="+"a"*160000+"\n"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："` "+"a"*160000+"\r"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`="+"a"*160000+"\r"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："` "+"aA"*160000+"@"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`="+"aA"*160000+"@"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："` "+"aA"*160000+"\n1\n"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`="+"aA"*160000+"\n1\n"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："` "+"aA"*160000+"\n"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`="+"aA"*160000+"\n"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："` "+"aA"*160000+"\r"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`="+"aA"*160000+"\r"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："` "+"a\u0000\u0000A0"*160000+"@"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："` "+"a\u0000\u0000\u0000\u0000"*160000+"@"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`="+"a\u0000\u0000A0"*160000+"@"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`="+"a\u0000\u0000\u0000\u0000"*160000+"@"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："` "+"a\u0000\u0000A0"*160000+""	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："` "+"a\u0000\u0000\u0000\u0000"*160000+""	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`="+"a\u0000\u0000A0"*160000+""	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`="+"a\u0000\u0000\u0000\u0000"*160000+""	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："` "+"a\u0000\u0000A0"*160000+"\n"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："` "+"a\u0000\u0000\u0000\u0000"*160000+"\n"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`="+"a\u0000\u0000A0"*160000+"\n"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`="+"a\u0000\u0000\u0000\u0000"*160000+"\n"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："` "+"a\u0000\u0000A0"*160000+"\r"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："` "+"a\u0000\u0000\u0000\u0000"*160000+"\r"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`="+"a\u0000\u0000A0"*160000+"\r"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`="+"a\u0000\u0000\u0000\u0000"*160000+"\r"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："` "+"A"*160000+"@"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`a"+"A"*160000+"@"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`="+"A"*160000+"@"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："` "+"A"*160000+"\n1\n"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`a"+"A"*160000+"\n1\n"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`="+"A"*160000+"\n1\n"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："` "+"A"*160000+"\n"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`a"+"A"*160000+"\n"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`="+"A"*160000+"\n"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："` "+"A"*160000+"\r"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`a"+"A"*160000+"\r"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`="+"A"*160000+"\r"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："` "+"A\u0000\u0000\u0000\u0000"*160000+"@"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："` "+"A\u0000\u0000\u00000"*160000+"@"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`a"+"A\u0000\u0000\u0000\u0000"*160000+"@"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`a"+"A\u0000\u0000\u00000"*160000+"@"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`="+"A\u0000\u0000\u0000\u0000"*160000+"@"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`="+"A\u0000\u0000\u00000"*160000+"@"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："` "+"A\u0000\u0000\u0000\u0000"*160000+""	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："` "+"A\u0000\u0000\u00000"*160000+""	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`a"+"A\u0000\u0000\u0000\u0000"*160000+""	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`a"+"A\u0000\u0000\u00000"*160000+""	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`="+"A\u0000\u0000\u0000\u0000"*160000+""	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`="+"A\u0000\u0000\u00000"*160000+""	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："` "+"A\u0000\u0000\u0000\u0000"*160000+"\n"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："` "+"A\u0000\u0000\u00000"*160000+"\n"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`a"+"A\u0000\u0000\u0000\u0000"*160000+"\n"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`a"+"A\u0000\u0000\u00000"*160000+"\n"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`="+"A\u0000\u0000\u0000\u0000"*160000+"\n"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`="+"A\u0000\u0000\u00000"*160000+"\n"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："` "+"A\u0000\u0000\u0000\u0000"*160000+"\r"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："` "+"A\u0000\u0000\u00000"*160000+"\r"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`a"+"A\u0000\u0000\u0000\u0000"*160000+"\r"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`a"+"A\u0000\u0000\u00000"*160000+"\r"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`="+"A\u0000\u0000\u0000\u0000"*160000+"\r"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`="+"A\u0000\u0000\u00000"*160000+"\r"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："` "+"0\u0000\u0000\u0000\u0000"*160000+"@"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`Aa"+"0\u0000\u0000\u0000\u0000"*160000+"@"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`="+"0\u0000\u0000\u0000\u0000"*160000+"@"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："` "+"0\u0000\u0000\u0000\u0000"*160000+""	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`Aa"+"0\u0000\u0000\u0000\u0000"*160000+""	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`="+"0\u0000\u0000\u0000\u0000"*160000+""	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："` "+"0\u0000\u0000\u0000\u0000"*160000+"\n"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`Aa"+"0\u0000\u0000\u0000\u0000"*160000+"\n"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`="+"0\u0000\u0000\u0000\u0000"*160000+"\n"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："` "+"0\u0000\u0000\u0000\u0000"*160000+"\r"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`Aa"+"0\u0000\u0000\u0000\u0000"*160000+"\r"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`="+"0\u0000\u0000\u0000\u0000"*160000+"\r"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString：""+"`aA"*160000+"\u0000"	 patternType: SLQ2
+failed TYPE:POLYNOMIAL	 AttackString：""+"`\u00000A`"*160000+"\u0000\u00000A`"	 patternType: SLQ2
+failed TYPE:POLYNOMIAL	 AttackString：""+"`\u00000a`"*160000+"\u0000\u0000\u00000`"	 patternType: SLQ2
+failed TYPE:POLYNOMIAL	 AttackString：""+"`"*160000+"\n@"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString："=`"+"1"*160000+""	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString："=`"+"1"*160000+"@"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString："=`"+"1"*160000+"@\n@"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"=`1"*160000+""	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"=`1"*160000+"@"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"=`1"*160000+"@\n@"	 patternType: SLQ_2
+-------------------------
+id:20
+^(?:(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9])$
+RESULT-FALSE
+
+failed TYPE:EXPONENT	 AttackString："250.250.250."+"2000."*2048+"@"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："00."+"2000."*2048+"@"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："250.250.250."+"2000."*2048+"◎A◎A!◎A◎A!◎A◎A!◎A◎A!◎A◎A!◎A◎A!"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："00."+"2000."*2048+"◎A◎A!◎A◎A!◎A◎A!◎A◎A!◎A◎A!◎A◎A!"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："250.250.250."+"2000."*2048+""	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："00."+"2000."*2048+""	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："250.250.250."+"2000."*2048+" "	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："00."+"2000."*2048+" "	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："250.250.250."+"20000."*2048+"@"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："250.250.250."+"200200."*2048+"@"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："250.250.250."+"20200."*2048+"@"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："00."+"20000."*2048+"@"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："00."+"200200."*2048+"@"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："00."+"20200."*2048+"@"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："250.250.250."+"20000."*2048+"◎A◎A!◎A◎A!◎A◎A!◎A◎A!◎A◎A!◎A◎A!"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："250.250.250."+"200200."*2048+"◎A◎A!◎A◎A!◎A◎A!◎A◎A!◎A◎A!◎A◎A!"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："250.250.250."+"20200."*2048+"◎A◎A!◎A◎A!◎A◎A!◎A◎A!◎A◎A!◎A◎A!"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："00."+"20000."*2048+"◎A◎A!◎A◎A!◎A◎A!◎A◎A!◎A◎A!◎A◎A!"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："00."+"200200."*2048+"◎A◎A!◎A◎A!◎A◎A!◎A◎A!◎A◎A!◎A◎A!"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："00."+"20200."*2048+"◎A◎A!◎A◎A!◎A◎A!◎A◎A!◎A◎A!◎A◎A!"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："250.250.250."+"20000."*2048+""	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："250.250.250."+"200200."*2048+""	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："250.250.250."+"20200."*2048+""	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："00."+"20000."*2048+""	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："00."+"200200."*2048+""	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："00."+"20200."*2048+""	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："250.250.250."+"20000."*2048+" "	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："250.250.250."+"200200."*2048+" "	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："250.250.250."+"20200."*2048+" "	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："00."+"20000."*2048+" "	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："00."+"200200."*2048+" "	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："00."+"20200."*2048+" "	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："250.250.250."+"25250."*2048+"@"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："250.250.250."+"20250."*2048+"@"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："250.250.250."+"250250."*2048+"@"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："250.250.250."+"250200."*2048+"@"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："250.250.250."+"200250."*2048+"@"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："00."+"25250."*2048+"@"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："00."+"20250."*2048+"@"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："00."+"250250."*2048+"@"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："00."+"250200."*2048+"@"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："00."+"200250."*2048+"@"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："250.250.250."+"25250."*2048+"◎A◎A!◎A◎A!◎A◎A!◎A◎A!◎A◎A!◎A◎A!"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："250.250.250."+"20250."*2048+"◎A◎A!◎A◎A!◎A◎A!◎A◎A!◎A◎A!◎A◎A!"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："250.250.250."+"250250."*2048+"◎A◎A!◎A◎A!◎A◎A!◎A◎A!◎A◎A!◎A◎A!"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："250.250.250."+"250200."*2048+"◎A◎A!◎A◎A!◎A◎A!◎A◎A!◎A◎A!◎A◎A!"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："250.250.250."+"200250."*2048+"◎A◎A!◎A◎A!◎A◎A!◎A◎A!◎A◎A!◎A◎A!"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："00."+"25250."*2048+"◎A◎A!◎A◎A!◎A◎A!◎A◎A!◎A◎A!◎A◎A!"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："00."+"20250."*2048+"◎A◎A!◎A◎A!◎A◎A!◎A◎A!◎A◎A!◎A◎A!"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："00."+"250250."*2048+"◎A◎A!◎A◎A!◎A◎A!◎A◎A!◎A◎A!◎A◎A!"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："00."+"250200."*2048+"◎A◎A!◎A◎A!◎A◎A!◎A◎A!◎A◎A!◎A◎A!"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："00."+"200250."*2048+"◎A◎A!◎A◎A!◎A◎A!◎A◎A!◎A◎A!◎A◎A!"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："250.250.250."+"25250."*2048+""	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："250.250.250."+"20250."*2048+""	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："250.250.250."+"250250."*2048+""	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："250.250.250."+"250200."*2048+""	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："250.250.250."+"200250."*2048+""	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："00."+"25250."*2048+""	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："00."+"20250."*2048+""	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："00."+"250250."*2048+""	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："00."+"250200."*2048+""	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："00."+"200250."*2048+""	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："250.250.250."+"25250."*2048+" "	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："250.250.250."+"20250."*2048+" "	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："250.250.250."+"250250."*2048+" "	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："250.250.250."+"250200."*2048+" "	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："250.250.250."+"200250."*2048+" "	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："00."+"25250."*2048+" "	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："00."+"20250."*2048+" "	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："00."+"250250."*2048+" "	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："00."+"250200."*2048+" "	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："00."+"200250."*2048+" "	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："250.250.250."+"00."*2048+"@"	 patternType: EOA_i1
+failed TYPE:EXPONENT	 AttackString："00."+"00."*2048+"@"	 patternType: EOA_i1
+failed TYPE:EXPONENT	 AttackString："250.250.250."+"00."*2048+"◎A◎A!◎A◎A!◎A◎A!◎A◎A!◎A◎A!◎A◎A!"	 patternType: EOA_i1
+failed TYPE:EXPONENT	 AttackString："00."+"00."*2048+"◎A◎A!◎A◎A!◎A◎A!◎A◎A!◎A◎A!◎A◎A!"	 patternType: EOA_i1
+failed TYPE:EXPONENT	 AttackString："250.250.250."+"00."*2048+""	 patternType: EOA_i1
+failed TYPE:EXPONENT	 AttackString："00."+"00."*2048+""	 patternType: EOA_i1
+failed TYPE:EXPONENT	 AttackString："250.250.250."+"00."*2048+" "	 patternType: EOA_i1
+failed TYPE:EXPONENT	 AttackString："00."+"00."*2048+" "	 patternType: EOA_i1
+failed TYPE:EXPONENT	 AttackString："250.250.250."+"000."*2048+"@"	 patternType: EOA_i1
+failed TYPE:EXPONENT	 AttackString："00."+"000."*2048+"@"	 patternType: EOA_i1
+failed TYPE:EXPONENT	 AttackString："250.250.250."+"000."*2048+"◎A◎A!◎A◎A!◎A◎A!◎A◎A!◎A◎A!◎A◎A!"	 patternType: EOA_i1
+failed TYPE:EXPONENT	 AttackString："00."+"000."*2048+"◎A◎A!◎A◎A!◎A◎A!◎A◎A!◎A◎A!◎A◎A!"	 patternType: EOA_i1
+failed TYPE:EXPONENT	 AttackString："250.250.250."+"000."*2048+""	 patternType: EOA_i1
+failed TYPE:EXPONENT	 AttackString："00."+"000."*2048+""	 patternType: EOA_i1
+failed TYPE:EXPONENT	 AttackString："250.250.250."+"000."*2048+" "	 patternType: EOA_i1
+failed TYPE:EXPONENT	 AttackString："00."+"000."*2048+" "	 patternType: EOA_i1
+failed TYPE:EXPONENT	 AttackString："00"+"00"*2048+"@"	 patternType: EOA_i1
+failed TYPE:EXPONENT	 AttackString："250.250.250."+"00"*2048+"@"	 patternType: EOA_i1
+failed TYPE:EXPONENT	 AttackString："00"+"00"*2048+"◎A◎A!◎A◎A!◎A◎A!◎A◎A!◎A◎A!◎A◎A!"	 patternType: EOA_i1
+failed TYPE:EXPONENT	 AttackString："250.250.250."+"00"*2048+"◎A◎A!◎A◎A!◎A◎A!◎A◎A!◎A◎A!◎A◎A!"	 patternType: EOA_i1
+failed TYPE:EXPONENT	 AttackString："00"+"00"*2048+""	 patternType: EOA_i1
+failed TYPE:EXPONENT	 AttackString："250.250.250."+"00"*2048+""	 patternType: EOA_i1
+failed TYPE:EXPONENT	 AttackString："00"+"00"*2048+" "	 patternType: EOA_i1
+failed TYPE:EXPONENT	 AttackString："250.250.250."+"00"*2048+" "	 patternType: EOA_i1
+failed TYPE:EXPONENT	 AttackString："00"+"000"*2048+"@"	 patternType: EOA_i1
+failed TYPE:EXPONENT	 AttackString："250.250.250."+"000"*2048+"@"	 patternType: EOA_i1
+failed TYPE:EXPONENT	 AttackString："00"+"000"*2048+"◎A◎A!◎A◎A!◎A◎A!◎A◎A!◎A◎A!◎A◎A!"	 patternType: EOA_i1
+failed TYPE:EXPONENT	 AttackString："250.250.250."+"000"*2048+"◎A◎A!◎A◎A!◎A◎A!◎A◎A!◎A◎A!◎A◎A!"	 patternType: EOA_i1
+failed TYPE:EXPONENT	 AttackString："00"+"000"*2048+""	 patternType: EOA_i1
+failed TYPE:EXPONENT	 AttackString："250.250.250."+"000"*2048+""	 patternType: EOA_i1
+failed TYPE:EXPONENT	 AttackString："00"+"000"*2048+" "	 patternType: EOA_i1
+failed TYPE:EXPONENT	 AttackString："250.250.250."+"000"*2048+" "	 patternType: EOA_i1
+-------------------------
+id:21
+`^[\w.-]+@[\w.\-]+\.[\w]{2,3}$`
+RESULT-FALSE
+
+failed TYPE:POLYNOMIAL	 AttackString："`-@A"+"-.00"*160000+"@"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`-@A"+"-.0A"*160000+"@"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`A@"+"-.00"*160000+"@"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`A@"+"-.0A"*160000+"@"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`-@A"+"-.00"*160000+""	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`-@A"+"-.0A"*160000+""	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`A@"+"-.00"*160000+""	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`A@"+"-.0A"*160000+""	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`-@A"+"-.00"*160000+" "	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`-@A"+"-.0A"*160000+" "	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`A@"+"-.00"*160000+" "	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`A@"+"-.0A"*160000+" "	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`-@A"+"-.00"*160000+"~"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`-@A"+"-.0A"*160000+"~"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`A@"+"-.00"*160000+"~"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："`A@"+"-.0A"*160000+"~"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString：""+"`"*160000+"~"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"`A@"*160000+"~@"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"`A@A."*160000+"~◎"	 patternType: SLQ_2
+-------------------------
+id:22
+`\$\d+(?:\.\d{2})?`
+RESULT-FALSE
+
+failed TYPE:POLYNOMIAL	 AttackString："`$1"+"."*160000+"a"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString："`$1"+"."*160000+"aa"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"`$"*160000+"a◎"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"`$1."*160000+"a"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"`$1."*160000+"aa"	 patternType: SLQ_2
+-------------------------
+id:23
+^[^.@]+@[a-z0-9.-]+\.[a-zA-Z]{2,67}$
+RESULT-FALSE
+
+failed TYPE:POLYNOMIAL	 AttackString："\u0000@a"+"-.AA"*160000+"@A0@A0"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："A@"+"-.AA"*160000+"@A0@A0"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："\u0000@a"+"-.AA"*160000+" "	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："A@"+"-.AA"*160000+" "	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："\u0000@a"+"-.AA"*160000+"~"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："A@"+"-.AA"*160000+"~"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："\u0000@a"+"-.AA"*160000+"0A0"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："A@"+"-.AA"*160000+"0A0"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString：""+"\u0000"*160000+"@"	 patternType: SLQ2
+failed TYPE:POLYNOMIAL	 AttackString：""+"A@"*160000+"A@"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"A@a."*160000+"0◎"	 patternType: SLQ_2
+-------------------------
+id:24
+`\d+`
+RESULT-FALSE
+
+failed TYPE:POLYNOMIAL	 AttackString：""+"`"*160000+"a"	 patternType: SLQ_2
+-------------------------
+id:25
+^.{4,8}$
+RESULT-FALSE
+
+-------------------------
+id:26
+^\d*
+RESULT-FALSE
+
+-------------------------
+id:27
+^\d*[-+]?[0-9]*$
+RESULT-TRUE
+success TYPE: POLYNOMIAL	 AttackString："0"+"0"*20000+" "
+vulnerability Position: ^▻\d*[-+]?[0-9]*◅$
+vulnerability Source: β1 = \d* β2 = [+\-]?[0-9]* (β1.followLast) ∩ (β2.first) ≠ ∅
+failed TYPE: POLYNOMIAL	 AttackString："0"+"0"*5000+"a"
+patternType: POA
+failed TYPE: POLYNOMIAL	 AttackString："0"+"0"*5000+"A0A"
+patternType: POA
+failed TYPE: POLYNOMIAL	 AttackString："0"+"0"*5000+"!A!A"
+patternType: POA
+failed TYPE: POLYNOMIAL	 AttackString：""+"0"*5000+"-"
+patternType: SLQ2
+failed TYPE: POLYNOMIAL	 AttackString：""+"1-"*5000+"AA"
+patternType: SLQ_2
+-------------------------
+id:28
+^\d*\.?\d*$
+RESULT-TRUE
+success TYPE: POLYNOMIAL	 AttackString："0"+"0"*20000+" "
+vulnerability Position: ^▻\d*\.?\d*◅$
+vulnerability Source: β1 = \d* β2 = \.?\d* (β1.followLast) ∩ (β2.first) ≠ ∅
+failed TYPE: POLYNOMIAL	 AttackString："0"+"0"*5000+"a"
+patternType: POA
+failed TYPE: POLYNOMIAL	 AttackString："0"+"0"*5000+"!"
+patternType: POA
+failed TYPE: POLYNOMIAL	 AttackString："0"+"0"*5000+"!1!"
+patternType: POA
+failed TYPE: POLYNOMIAL	 AttackString：""+"0"*5000+"\u0000"
+patternType: SLQ2
+failed TYPE: POLYNOMIAL	 AttackString：""+"1."*5000+"a◎"
+patternType: SLQ_2
+-------------------------
+id:29
+^(\d{1,3}[-\s]?)?\d{3}[\w\s]*$
+RESULT-FALSE
+
+failed TYPE:POLYNOMIAL	 AttackString："0"+"0000"*160000+"\u0000"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString：""+"0000"*160000+"\u0000"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："0"+"0000"*160000+"a"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString：""+"0000"*160000+"a"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："0"+"0000"*160000+"!~!~"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString：""+"0000"*160000+"!~!~"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："0"+"0000"*160000+"~A~"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString：""+"0000"*160000+"~A~"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString：""+"1"*160000+"a"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"1-"*160000+"aa"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"1-111"*160000+"~a"	 patternType: SLQ_2
+-------------------------
+id:30
+^(?:[0-9]{1,2}:[0-9]{1,2})$
+RESULT-FALSE
+
+failed TYPE:POLYNOMIAL	 AttackString：""+"0"*160000+"A"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"0:"*160000+"A@"	 patternType: SLQ_2
+-------------------------
+id:31
+^[a-zA-Z ,]+$
+RESULT-FALSE
+
+-------------------------
+id:32
+^\d{5}(?:-\d{4})?$
+RESULT-FALSE
+
+failed TYPE:POLYNOMIAL	 AttackString："11111"+"-"*160000+"a"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString："11111"+"-"*160000+"aa"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"11111-"*160000+"a"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"11111-"*160000+"aa"	 patternType: SLQ_2
+-------------------------
+id:33
+^(?:\+31|0031|\(\+\+?31\)\+?)?\(?0\)?[-\s]*[5-9]\d{7,10}$
+RESULT-FALSE
+
+failed TYPE:POLYNOMIAL	 AttackString：""+"+31(0)"*160000+"A◎"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"+31(0)-5"*160000+"aA"	 patternType: SLQ_2
+-------------------------
+id:34
+`\d{9}[0-9X]$`
+RESULT-FALSE
+
+failed TYPE:POLYNOMIAL	 AttackString：""+"`"*160000+"a"	 patternType: SLQ_2
+-------------------------
+id:35
+^(?:0[1-9]|1[0-9]|2[0-9]|3[0-1])\/(?:0[1-9]|1[0-2])\/(?:19|20)[0-9]{2}$
+RESULT-FALSE
+
+failed TYPE:POLYNOMIAL	 AttackString：""+"01/01/19"*160000+"A@"	 patternType: SLQ_2
+-------------------------
+id:36
+\b(?:\d+(?:\.\d+)?|\.\d*(?:\d\d|00))$
+RESULT-FALSE
+
+failed TYPE:POLYNOMIAL	 AttackString：""+"0"*160000+"\u0000"	 patternType: SLQ2
+failed TYPE:POLYNOMIAL	 AttackString：""+"1"*160000+"a"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString："1"+"."*160000+"a"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString："1"+"."*160000+""	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"1."*160000+"a"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"1."*160000+""	 patternType: SLQ_2
+-------------------------
+id:37
+^(?:\d{5}-\d{4}|\d{1,5})(?:[A-Za-z][0-9A-Za-z]? [0-9A-Z][0-9A-Z]?)?$
+RESULT-FALSE
+
+failed TYPE:POLYNOMIAL	 AttackString：""+"11111"*160000+"a"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"11111-"*160000+"a@"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"11111-1111"*160000+"a"	 patternType: SLQ_2
+-------------------------
+id:38
+^[A-Z]{1,2}[0-9A-Z]{1,2} [0-9A-Z]?[0-9]?[A-Z]{2}$
+RESULT-FALSE
+
+failed TYPE:POLYNOMIAL	 AttackString：""+"AA"*160000+"aAa"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString：""+"A0"*160000+"aAa"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："A"+"AA"*160000+"aAa"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："A"+"A0"*160000+"aAa"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString：""+"AA"*160000+" "	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString：""+"A0"*160000+" "	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："A"+"AA"*160000+" "	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："A"+"A0"*160000+" "	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString：""+"AA"*160000+"a"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString：""+"A0"*160000+"a"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："A"+"AA"*160000+"a"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString："A"+"A0"*160000+"a"	 patternType: POA
+failed TYPE:POLYNOMIAL	 AttackString：""+"A"*160000+"aa"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"AA A0"*160000+"aA"	 patternType: SLQ_2
+-------------------------
+id:39
+^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}$|^\d{4}\/\d{2}\/\d{2}\ \d{2}:\d{2}:\d{2}$
+RESULT-FALSE
+
+failed TYPE:POLYNOMIAL	 AttackString：""+"1111-"*160000+"a@"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString："1111-11-11T11:11:11"+"1111/"*160000+""	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString："1111-11-11T11:11:11"+"1111/"*160000+"a◎"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"1111-11-"*160000+"a@"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString："1111-11-11T11:11:11"+"1111/11/"*160000+""	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString："1111-11-11T11:11:11"+"1111/11/"*160000+"a◎"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"1111-11-11T"*160000+"a@"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString："1111-11-11T11:11:11"+"1111/11/11 "*160000+""	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString："1111-11-11T11:11:11"+"1111/11/11 "*160000+"a◎"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"1111-11-11T11:"*160000+"a@"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString："1111-11-11T11:11:11"+"1111/11/11 11:"*160000+""	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString："1111-11-11T11:11:11"+"1111/11/11 11:"*160000+"a@"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"1111-11-11T11:11:"*160000+"a@"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString："1111-11-11T11:11:11"+"1111/11/11 11:11:"*160000+""	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString："1111-11-11T11:11:11"+"1111/11/11 11:11:"*160000+"a@"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"1111-11-11T11:11:111111/"*160000+""	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"1111-11-11T11:11:111111/"*160000+"a◎"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"1111-11-11T11:11:111111/11/"*160000+""	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"1111-11-11T11:11:111111/11/"*160000+"a◎"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"1111-11-11T11:11:111111/11/11 "*160000+""	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"1111-11-11T11:11:111111/11/11 "*160000+"a◎"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"1111-11-11T11:11:111111/11/11 11:"*160000+""	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"1111-11-11T11:11:111111/11/11 11:"*160000+"a@"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"1111-11-11T11:11:111111/11/11 11:11:"*160000+""	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"1111-11-11T11:11:111111/11/11 11:11:"*160000+"a@"	 patternType: SLQ_2
+-------------------------
+id:40
+^(19|20)\d{2}[ -\/.](0[1-9]|1[012])[ -\/.](0[1-9]|[12][0-9]|3[01])$
+RESULT-FALSE
+
+failed TYPE:POLYNOMIAL	 AttackString：""+"19"*160000+"a@"	 patternType: SLQ_2
+-------------------------
+id:41
+`^(?:\d{7}|\d{10}|\d{11})[-\s]*$|^(\d{1}-?\d{3}-?\d{3}-?\d{2,4})$`
+RESULT-FALSE
+
+failed TYPE:POLYNOMIAL	 AttackString："`1111111"+"1-"*160000+""	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString："`1111111"+"1-"*160000+"a@"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString："`1111111"+"1-111-"*160000+""	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString："`1111111"+"1-111-"*160000+"a@"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString："`"+"1111111"*160000+""	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString："`"+"1111111"*160000+"a"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"`1111111"*160000+""	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"`1111111"*160000+"a"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"`1111111"*160000+"Aa"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"`11111111-"*160000+""	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"`11111111-"*160000+"a@"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString："`1111111"+"1-111-111-"*160000+""	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString："`1111111"+"1-111-111-"*160000+"a@"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"`11111111-111-"*160000+""	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"`11111111-111-"*160000+"a@"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString："`"+"11111111111111111"*160000+""	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString："`"+"11111111111111111"*160000+"a"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"`11111111111111111"*160000+""	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"`11111111111111111"*160000+"a"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"`11111111-111-111-"*160000+""	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"`11111111-111-111-"*160000+"a@"	 patternType: SLQ_2
+-------------------------
+id:42
+`^[a-zA-Z]:[\\\/][^\\\/]+\\.[^\\\/]+\.xls$`
+RESULT-FALSE
+
+failed TYPE:POLYNOMIAL	 AttackString：""+"`A:/"*160000+"/A"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"`A:/A\\1"*160000+"/\n@"	 patternType: SLQ_2
+-------------------------
+id:43
+`^(?:\d{4}|\d\s\d{3}|^0?\d{2})$`
+RESULT-FALSE
+
+failed TYPE:POLYNOMIAL	 AttackString："11111 111`"+"0"*160000+""	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString："11111 111`"+"0"*160000+"a@"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString："1111`"+"1 "*160000+""	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString："1111`"+"1 "*160000+"a!"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString："`"+"1111"*160000+""	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString："`"+"1111"*160000+"a"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"`1111"*160000+""	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"`1111"*160000+"a"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"1111`1 "*160000+""	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"1111`1 "*160000+"a!"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"11111 111`0"*160000+""	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"11111 111`0"*160000+"a@"	 patternType: SLQ_2
+-------------------------
+id:44
+`\d{1,2}\/\d{2,4}`
+RESULT-FALSE
+
+failed TYPE:POLYNOMIAL	 AttackString：""+"`"*160000+"a"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"`1/"*160000+"a◎"	 patternType: SLQ_2
+-------------------------
+id:45
+^(0[1-9]|1[0-2])\/(0[1-9]|[12][0-9]|3[01])\/[0-9]{4}$
+RESULT-FALSE
+
+failed TYPE:POLYNOMIAL	 AttackString：""+"01/01/"*160000+"A◎"	 patternType: SLQ_2
+-------------------------
+id:46
+^\d{2}\/\d{2}\/\d{4}$
+RESULT-FALSE
+
+failed TYPE:POLYNOMIAL	 AttackString：""+"11/"*160000+"a◎"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"11/11/"*160000+"a◎"	 patternType: SLQ_2
+-------------------------
+id:47
+^\d+(\d{3})*\.\d{0,3}$|^\d+$
+RESULT-TRUE
+success TYPE: POLYNOMIAL	 AttackString："0"+"0000"*5000+" "
+vulnerability Position: ^▻\d+◅(▻\d{3}◅)*\.\d{0,3}$|^\d+$
+vulnerability Source: β1 = \d+ β2 = \d{3} (β1.followLast) ∩ (β2.first) ≠ ∅
+failed TYPE: POLYNOMIAL	 AttackString：""+"0000"*5000+" "
+patternType: POA
+failed TYPE: POLYNOMIAL	 AttackString："0"+"0000"*5000+"a"
+patternType: POA
+failed TYPE: POLYNOMIAL	 AttackString：""+"0000"*5000+"a"
+patternType: POA
+failed TYPE: POLYNOMIAL	 AttackString："0"+"0000"*5000+"!"
+patternType: POA
+failed TYPE: POLYNOMIAL	 AttackString：""+"0000"*5000+"!"
+patternType: POA
+failed TYPE: POLYNOMIAL	 AttackString："0"+"0000"*5000+"!1!"
+patternType: POA
+failed TYPE: POLYNOMIAL	 AttackString：""+"0000"*5000+"!1!"
+patternType: POA
+failed TYPE: POLYNOMIAL	 AttackString："0"+"000"*5000+" "
+patternType: POA
+failed TYPE: POLYNOMIAL	 AttackString："0"+"0"*5000+" "
+patternType: POA
+failed TYPE: POLYNOMIAL	 AttackString：""+"000"*5000+" "
+patternType: POA
+failed TYPE: POLYNOMIAL	 AttackString："0"+"000"*5000+"a"
+patternType: POA
+failed TYPE: POLYNOMIAL	 AttackString："0"+"0"*5000+"a"
+patternType: POA
+failed TYPE: POLYNOMIAL	 AttackString：""+"000"*5000+"a"
+patternType: POA
+failed TYPE: POLYNOMIAL	 AttackString："0"+"000"*5000+"!"
+patternType: POA
+failed TYPE: POLYNOMIAL	 AttackString："0"+"0"*5000+"!"
+patternType: POA
+failed TYPE: POLYNOMIAL	 AttackString：""+"000"*5000+"!"
+patternType: POA
+failed TYPE: POLYNOMIAL	 AttackString："0"+"000"*5000+"!1!"
+patternType: POA
+failed TYPE: POLYNOMIAL	 AttackString："0"+"0"*5000+"!1!"
+patternType: POA
+failed TYPE: POLYNOMIAL	 AttackString：""+"000"*5000+"!1!"
+patternType: POA
+failed TYPE: POLYNOMIAL	 AttackString：""+"0"*5000+"\u0000"
+patternType: SLQ2
+failed TYPE: POLYNOMIAL	 AttackString：""+"1"*5000+"aa"
+patternType: SLQ_2
+failed TYPE: POLYNOMIAL	 AttackString："1"+"111"*5000+"a"
+patternType: SLQ_2
+failed TYPE: POLYNOMIAL	 AttackString："1"+"111"*5000+"aa"
+patternType: SLQ_2
+failed TYPE: POLYNOMIAL	 AttackString：""+"1111"*5000+"a"
+patternType: SLQ_2
+failed TYPE: POLYNOMIAL	 AttackString：""+"1111"*5000+"aa"
+patternType: SLQ_2
+failed TYPE: POLYNOMIAL	 AttackString：""+"1111."*5000+"a◎"
+patternType: SLQ_2
+-------------------------
+id:48
+^(0[1-9]|[12][0-9]|3[01])[.](0[1-9]|1[0-2))[.](20|30|[4-9]\d){4}$
+RESULT-FALSE
+
+-------------------------
+id:49
+^(0[1-9]|1[012]|[12]\d|3[01]|31)\/(0[1-9]|1\d|2[0-9]|30|31)\/\d{4}$
+RESULT-FALSE
+
+failed TYPE:POLYNOMIAL	 AttackString：""+"01/01/"*160000+"a◎"	 patternType: SLQ_2
+-------------------------
+id:50
+^([0-9]{1,2}|[0-9]{4})\/([0-9]{1,2}|[0-9]{4})\/?([01][0-9]|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)?$
+RESULT-FALSE
+
+failed TYPE:POLYNOMIAL	 AttackString：""+"0"*160000+"A"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString："0/"+"0"*160000+"◎"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString："0/"+"0"*160000+"◎A"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"0/0"*160000+"◎"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"0/0"*160000+"◎A"	 patternType: SLQ_2
+-------------------------
