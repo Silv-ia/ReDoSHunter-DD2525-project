@@ -13,7 +13,7 @@ import static cn.ac.ios.Bean.AttackBean.*;
 public class TimeoutTaskUtils {
 
     /**
-     * 执行一个有时间限制的任务
+     * 执行一个有时间限制的任务 task with time constraint
      *
      * @param task 待执行的任务
      * @return
@@ -29,6 +29,7 @@ public class TimeoutTaskUtils {
             time = System.currentTimeMillis() - time;
             result = new Pair<>(time >= TIME_OUT, (int) time);
             threadPool.shutdownNow();
+        // investigate this? Throwable.getCause()
         } catch (ExecutionException e) {
             result = new Pair<>(false, STACK_ERROR);
             threadPool.shutdownNow();
