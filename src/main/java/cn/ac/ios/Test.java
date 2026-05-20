@@ -32,7 +32,7 @@ import static cn.ac.ios.Utils.Utils.readFile;
 public class Test {
     public static void main(String[] args) throws IOException {
         String filePath = "data/paper_dataset";
-        String fileName = "regex.txt";
+        String fileName = "regex-100.txt";
         run(filePath + "/" + fileName, fileName);
     }
 
