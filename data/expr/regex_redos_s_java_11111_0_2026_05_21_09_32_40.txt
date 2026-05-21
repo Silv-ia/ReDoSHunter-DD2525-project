@@ -1,0 +1,103 @@
+id:1
+(a|a)+$
+RESULT-FALSE
+
+failed TYPE:STACK_ERROR	 AttackString：""+"aa"*1510+"@"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："a"+"aa"*2048+"@"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString：""+"aa"*2048+" "	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："a"+"aa"*2048+" "	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString：""+"aa"*2048+"◎a◎"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："a"+"aa"*2048+"◎a◎"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString：""+"aa"*2048+"◎"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："a"+"aa"*2048+"◎"	 patternType: EOD_i
+failed TYPE:STACK_ERROR	 AttackString：""+"a"*5510+"@"	 patternType: SLQ_1
+-------------------------
+id:2
+(a|a?)+$
+RESULT-FALSE
+
+failed TYPE:EXPONENT	 AttackString：""+"a"*2048+""	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString：""+"a"*2048+" "	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString：""+"a"*2048+"◎a◎"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString：""+"a"*2048+"◎"	 patternType: EOD_i
+-------------------------
+id:3
+(\w|\d)+$
+RESULT-FALSE
+
+failed TYPE:EXPONENT	 AttackString：""+"00"*2048+"\u0000"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString：""+"0A"*2048+"\u0000"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："A"+"00"*2048+"\u0000"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："A"+"0A"*2048+"\u0000"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString：""+"00"*2048+"!"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString：""+"0A"*2048+"!"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："A"+"00"*2048+"!"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："A"+"0A"*2048+"!"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString：""+"00"*2048+"!1!"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString：""+"0A"*2048+"!1!"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："A"+"00"*2048+"!1!"	 patternType: EOD_i
+failed TYPE:EXPONENT	 AttackString："A"+"0A"*2048+"!1!"	 patternType: EOD_i
+failed TYPE:STACK_ERROR	 AttackString：""+"1"*5510+"!"	 patternType: SLQ_1
+failed TYPE:STACK_ERROR	 AttackString：""+"0"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"2"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"3"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"4"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"5"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"6"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"7"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"8"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"9"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"A"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"B"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"C"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"D"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"E"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"F"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"G"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"H"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"I"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"J"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"K"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"L"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"M"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"N"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"O"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"P"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"Q"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"R"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"S"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"T"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"U"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"V"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"W"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"X"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"Y"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"Z"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"_"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"a"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"b"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"c"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"d"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"e"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"f"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"g"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"h"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"i"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"j"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"k"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"l"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"m"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"n"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"o"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"p"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"q"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"r"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"s"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"t"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"u"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"v"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"w"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"x"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"y"*5510+"!"	 patternType: SLQ_3
+failed TYPE:STACK_ERROR	 AttackString：""+"z"*5510+"!"	 patternType: SLQ_3
+-------------------------

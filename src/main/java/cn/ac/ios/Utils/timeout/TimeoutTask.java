@@ -9,6 +9,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import static cn.ac.ios.Bean.AttackBean.*;
+// this is the task that TimeOutTaskUtil uses/does, in parallel. What does it do?
 
 /**
  * @author pqc
