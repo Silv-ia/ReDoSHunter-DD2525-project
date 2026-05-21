@@ -33,7 +33,8 @@ public class TimeoutTaskUtils {
         } catch (ExecutionException e) {
             result = new Pair<>(false, STACK_ERROR);
             threadPool.shutdownNow();
-            e.printStackTrace();
+            // debug shows that it is stack overflow related to javas regex engine/processor
+            // e.printStackTrace();
         } catch (InterruptedException in) {
             result = new Pair<>(false, INTERRUPTED);
             threadPool.shutdownNow();
