@@ -1,0 +1,150 @@
+id:1
+/[.*+?^${}()|[\]\\]/
+RESULT-FALSE
+
+-------------------------
+id:2
+'(.*)\\s+\\[(.*)\\]'
+RESULT-TRUE
+failed TYPE: POLYNOMIAL	 AttackString："'"+"\\s"*160000+"@"
+patternType: POA
+failed TYPE: POLYNOMIAL	 AttackString："' "+"\\s"*160000+"@"
+patternType: POA
+failed TYPE: POLYNOMIAL	 AttackString："'"+"\\s"*160000+""
+patternType: POA
+failed TYPE: POLYNOMIAL	 AttackString："' "+"\\s"*160000+""
+patternType: POA
+failed TYPE: POLYNOMIAL	 AttackString："'"+"\\s"*160000+" "
+patternType: POA
+failed TYPE: POLYNOMIAL	 AttackString："' "+"\\s"*160000+" "
+patternType: POA
+failed TYPE: POLYNOMIAL	 AttackString："'"+"\\s"*160000+"\n◎\n◎"
+patternType: POA
+failed TYPE: POLYNOMIAL	 AttackString："' "+"\\s"*160000+"\n◎\n◎"
+patternType: POA
+success TYPE: POLYNOMIAL	 AttackString：""+"'"*20000+"\u0000"
+vulnerability Position: Unable to locate Vulnerability position
+vulnerability Source: Unable to find Vulnerability source
+failed TYPE: POLYNOMIAL	 AttackString：""+"'"*5000+"\n@"
+patternType: SLQ_2
+failed TYPE: POLYNOMIAL	 AttackString：""+"'1\\"*5000+"@◎"
+patternType: SLQ_2
+-------------------------
+id:3
+(.*)\s+\[(.*)\]
+RESULT-TRUE
+success TYPE: POLYNOMIAL	 AttackString：" "+" "*5000+"\n!\n!\n"
+vulnerability Position: (▻.*◅)▻\s+◅\[(.*)\]
+vulnerability Source: β1 = .* β2 = \s+ (β1.followLast) ∩ (β2.first) ≠ ∅
+failed TYPE: POLYNOMIAL	 AttackString：" "+"\t"*5000+"\n!\n!\n"
+patternType: POA
+failed TYPE: POLYNOMIAL	 AttackString：""+"\t"*5000+"\n!\n!\n"
+patternType: POA
+failed TYPE: POLYNOMIAL	 AttackString：" "+" "*5000+"\u0000"
+patternType: POA
+failed TYPE: POLYNOMIAL	 AttackString：" "+"\t"*5000+"\u0000"
+patternType: POA
+failed TYPE: POLYNOMIAL	 AttackString：""+"\t"*5000+"\u0000"
+patternType: POA
+failed TYPE: POLYNOMIAL	 AttackString：" "+" "*5000+"\n1\n"
+patternType: POA
+failed TYPE: POLYNOMIAL	 AttackString：" "+"\t"*5000+"\n1\n"
+patternType: POA
+failed TYPE: POLYNOMIAL	 AttackString：""+"\t"*5000+"\n1\n"
+patternType: POA
+failed TYPE: POLYNOMIAL	 AttackString：" "+" "*5000+"\n@"
+patternType: POA
+failed TYPE: POLYNOMIAL	 AttackString：" "+"\t"*5000+"\n@"
+patternType: POA
+failed TYPE: POLYNOMIAL	 AttackString：""+"\t"*5000+"\n@"
+patternType: POA
+failed TYPE: POLYNOMIAL	 AttackString：" "+"\t["*5000+"\n!\n!\n"
+patternType: POA
+failed TYPE: POLYNOMIAL	 AttackString：""+"\t["*5000+"\n!\n!\n"
+patternType: POA
+failed TYPE: POLYNOMIAL	 AttackString：" "+"\t["*5000+""
+patternType: POA
+failed TYPE: POLYNOMIAL	 AttackString：""+"\t["*5000+""
+patternType: POA
+failed TYPE: POLYNOMIAL	 AttackString：" "+"\t["*5000+"\n@"
+patternType: POA
+failed TYPE: POLYNOMIAL	 AttackString：""+"\t["*5000+"\n@"
+patternType: POA
+failed TYPE: POLYNOMIAL	 AttackString：" "+"\t["*5000+"\r"
+patternType: POA
+failed TYPE: POLYNOMIAL	 AttackString：""+"\t["*5000+"\r"
+patternType: POA
+failed TYPE: POLYNOMIAL	 AttackString：""+" "*5000+" "
+patternType: SLQ2
+failed TYPE: POLYNOMIAL	 AttackString：""+"\t["*5000+"\u0000"
+patternType: SLQ2
+failed TYPE: POLYNOMIAL	 AttackString：""+"1"*5000+"!"
+patternType: SLQ_1
+failed TYPE: POLYNOMIAL	 AttackString：""+"1"*5000+"\n@"
+patternType: SLQ_2
+failed TYPE: POLYNOMIAL	 AttackString：""+"1 ["*5000+"\n@◎"
+patternType: SLQ_2
+-------------------------
+id:4
+[\\\/]kernel-([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})\.json$
+RESULT-FALSE
+
+failed TYPE:POLYNOMIAL	 AttackString："/kernel-"+"aaaaaaaa"*160000+"@"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString："/kernel-"+"aaaaaaaa"*160000+"@A"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString："/kernel-"+"aaaaaaaa-"*160000+"@"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString："/kernel-"+"aaaaaaaa-"*160000+"@A@"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString："/kernel-"+"aaaaaaaa-aaaa-"*160000+"@"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString："/kernel-"+"aaaaaaaa-aaaa-"*160000+"@A@"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"/kernel-aaaaaaaa"*160000+"@"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"/kernel-aaaaaaaa"*160000+"@A"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"/kernel-aaaaaaaa-"*160000+"@"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"/kernel-aaaaaaaa-"*160000+"@A@"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString："/kernel-"+"aaaaaaaa-aaaa-aaaa-"*160000+"@"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString："/kernel-"+"aaaaaaaa-aaaa-aaaa-"*160000+"@A@"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"/kernel-aaaaaaaa-aaaa-"*160000+"@"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"/kernel-aaaaaaaa-aaaa-"*160000+"@A@"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString："/kernel-"+"aaaaaaaa-aaaa-aaaa-aaaa-"*160000+"@"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString："/kernel-"+"aaaaaaaa-aaaa-aaaa-aaaa-"*160000+"@A@"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"/kernel-aaaaaaaa-aaaa-aaaa-"*160000+"@"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"/kernel-aaaaaaaa-aaaa-aaaa-"*160000+"@A@"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"/kernel-aaaaaaaa-aaaa-aaaa-aaaa-"*160000+"@"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"/kernel-aaaaaaaa-aaaa-aaaa-aaaa-"*160000+"@A@"	 patternType: SLQ_2
+-------------------------
+id:5
+(\?\.)?\[\".*\"\]
+RESULT-TRUE
+success TYPE: POLYNOMIAL	 AttackString：""+"[""*20000+"\u0000"
+vulnerability Position: Unable to locate Vulnerability position
+vulnerability Source: Unable to find Vulnerability source
+failed TYPE: POLYNOMIAL	 AttackString：""+"?.[""*5000+"\n@◎"
+patternType: SLQ_2
+-------------------------
+id:6
+^[0-9]*$
+RESULT-FALSE
+
+-------------------------
+id:7
+^(?!-)[A-Za-z0-9-]{1,63}(?<!-)$
+RESULT-FALSE
+
+-------------------------
+id:8
+^[a-z.]+$
+RESULT-FALSE
+
+-------------------------
+id:9
+^v(\d+)\.\d+\.\d+.json
+RESULT-FALSE
+
+failed TYPE:POLYNOMIAL	 AttackString：""+"v"*160000+"a@"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"v1."*160000+"a◎"	 patternType: SLQ_2
+failed TYPE:POLYNOMIAL	 AttackString：""+"v1.1."*160000+"a◎"	 patternType: SLQ_2
+-------------------------
+id:10
+height="[\d\.]+pt"
+RESULT-FALSE
+
+failed TYPE:POLYNOMIAL	 AttackString：""+"height=""*160000+"A@"	 patternType: SLQ_2
+-------------------------
