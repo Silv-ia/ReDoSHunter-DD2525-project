@@ -212,7 +212,7 @@ DEFAULT_JVM_OPTS=""
 
 set -- \
         -classpath "$CLASSPATH" \
-        cn.ac.ios.Test \
+        cn.ac.ios.ReDoSMain \
         "$@"
 
 # Stop when "xargs" is not available.

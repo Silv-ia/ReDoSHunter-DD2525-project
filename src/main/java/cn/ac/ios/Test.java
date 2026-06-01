@@ -32,12 +32,12 @@ import static cn.ac.ios.Utils.Utils.readFile;
 public class Test {
     public static void main(String[] args) throws IOException {
         String filePath = "data/paper_dataset";
-        String fileName = "regex-700.txt";
+        String fileName = "repo-python.txt";
         run(filePath + "/" + fileName, fileName);
     }
 
     private static void run(String s, String fileName) {
-        run(s, fileName, "s", "java", "11111", 0, 15, 1, 60);
+        run(s, fileName, "s", "python", "11111", 0, 15, 1, 60);
     }
 
     public static void run(String sourceFile, String outfileName, String model, String language, String patternModel, int funcType, int checkThreadCount, int validateThreadCount, int timeout) {

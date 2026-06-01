@@ -11,6 +11,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.output.BrokenWriter;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -21,9 +22,14 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.BufferedWriter;
+
 import static cn.ac.ios.TreeNode.Utils.createReDoSTree;
 import static cn.ac.ios.Utils.Constant.EXTENDED_COUNTING;
 import static cn.ac.ios.Utils.FlagsUtils.*;
+import static cn.ac.ios.Utils.Utils.readFile;
 
 /**
  * @author pqc
@@ -34,23 +40,53 @@ public class ReDoSMain {
     public static String JS = "node";
 
     public static void main(String[] args) throws IOException, InterruptedException {
-        String regex = "(a|a?)+$";
+        List<String> regexes = readFile("data/paper_dataset/repo-python.txt");
+        
+        for (int j=0; j<regexes.size(); j++){
+            String regex = regexes.get(j);
+            ReDoSBean bean = validateReDoS(checkReDoS(regex, 1, "11111", "python"), "s", "python");
+            System.out.println(bean.getRegex());
+            int indx = j+1;
+
+            for (int i = 0; i < bean.getAttackBeanList().size(); i++) {
+                if (bean.getAttackBeanList().get(i).isAttackSuccess()) {
+                    
+                    try (BufferedWriter myWriter = new BufferedWriter(new FileWriter("data/expr/git-python-engine.txt", true))) {
+                        myWriter.write("ID: " + indx);
+                        myWriter.newLine();
+                        myWriter.write(bean.getRegex()); 
+                        myWriter.newLine();
+                        myWriter.write("Is attack success: " + bean.getAttackBeanList().get(i).isAttackSuccess());
+                        myWriter.newLine();
+                        myWriter.write("Attack time: " + bean.getAttackBeanList().get(i).getAttackTime() + " (ms)");
+                        myWriter.newLine();
+                        myWriter.write("Vulnerability Position: " + bean.getAttackBeanList().get(i).getLocateVulnerabilityRegex());
+                        myWriter.newLine();
+                        myWriter.write("Attack String: " + bean.getAttackBeanList().get(i).getAttackStringFormat());
+                        myWriter.newLine();
+                        myWriter.write("Vulnerability Source: " + bean.getAttackBeanList().get(i).getVulnerabilityRegexSource());
+                        myWriter.newLine();
+                        myWriter.write("Vulnerability Degree: " + bean.getAttackBeanList().get(i).getType());
+                        myWriter.newLine();
+                        // System.out.println("Successfully appended to the file.");
+                    } catch (IOException e) {
+                        System.out.println("An error occurred.");
+                        e.printStackTrace();
+                    }
+
+
+                }
+            }
+
+        }
+        
+        
+        // String regex = "(.*)\\s+\\[(.*)\\]";
         // regex = "^(\\w+)\\w+$";
         // regex = "^Set-Cookie:\\\\s*([^=]+)=([^;]+)";
 //        regex = "^Set-Cookie:(\\w+)a(\\w+)$";
 //        regex = "a+a+b";
-        ReDoSBean bean = validateReDoS(checkReDoS(regex, 1, "11111", "java"), "s", "java");
-        System.out.println(bean.getRegex());
-        for (int i = 0; i < bean.getAttackBeanList().size(); i++) {
-            if (bean.getAttackBeanList().get(i).isAttackSuccess()) {
-                System.out.println("Is attack success: " + bean.getAttackBeanList().get(i).isAttackSuccess());
-                System.out.println("Attack time: " + bean.getAttackBeanList().get(i).getAttackTime() + " (ms)");
-                System.out.println("Vulnerability Position: " + bean.getAttackBeanList().get(i).getLocateVulnerabilityRegex());
-                System.out.println("Attack String: " + bean.getAttackBeanList().get(i).getAttackStringFormat());
-                System.out.println("Vulnerability Source: " + bean.getAttackBeanList().get(i).getVulnerabilityRegexSource());
-                System.out.println("Vulnerability Degree: " + bean.getAttackBeanList().get(i).getType());
-            }
-        }
+        
     }
 
     /**
