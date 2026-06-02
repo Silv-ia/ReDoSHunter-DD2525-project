@@ -40,7 +40,7 @@ public class ReDoSMain {
     public static String JS = "node";
 
     public static void main(String[] args) throws IOException, InterruptedException {
-        List<String> regexes = readFile("data/paper_dataset/repo-python.txt");
+        List<String> regexes = readFile("data/paper_dataset/python-engine-git.txt");
         
         for (int j=0; j<regexes.size(); j++){
             String regex = regexes.get(j);
